@@ -33,7 +33,8 @@ TEMPLATE = """
 @app.route("/")
 def index():
     envs = dict(os.environ)
-    return render_template_string(TEMPLATE, envs=envs)
+    sorted_envs = dict(sorted(envs.items()))
+    return render_template_string(TEMPLATE, envs=sorted_envs)
 
 
 if __name__ == "__main__":
